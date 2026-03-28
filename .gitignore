@@ -1,0 +1,21 @@
+# Build and cache
+build/
+__pycache__/
+**/__pycache__/
+
+# Runtime outputs
+logs/
+dumpfile/
+*.log
+result*.txt
+
+# Archives and packages
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Temp/editor
+*.tmp
+*.swp
+.DS_Store

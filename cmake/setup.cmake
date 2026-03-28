@@ -1,0 +1,25 @@
+function(set_env)
+    # config compiles flags is platform dependent
+    if(WIN32)
+		message(STATUS "BUILDING FOR WIN")
+        if (MSVC)
+			message(STATUS "BUILDING FOR MSVC")
+            set(CMAKE_USE_WIN32_THREADS_INIT ON)
+            set(COMMON_FLAGS "")
+        endif (MSVC)
+    elseif(APPLE)
+		message(FATAL_ERROR "does not support apple yet")
+    else()
+		message(STATUS "BUILDING FOR UNIX")
+        set(COMMON_FLAGS "-pedantic -Wall -Wextra -Wcast-align -Wfloat-equal")
+        set(npu_csim_C_FLAGS "")
+        set(npu_csim_CPP_FLAGS "")
+    endif()
+
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${COMMON_FLAGS} ${npu_csim_C_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMMON_FLAGS} ${npu_csim_CPP_FLAGS}")
+
+    find_package(Threads)
+endfunction()
+
+set_env()

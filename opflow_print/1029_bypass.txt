@@ -1,0 +1,63 @@
+-----------------------CDMA-----------------------
+   CDMA : node_index           = 0x0             0
+   CDMA : node_type            = 0x0             0
+   CDMA : next_node_index      = 0x1             1
+   CDMA : opcode_id            = 0x0             0
+   CDMA : addr                 = 0x40000000      1073741824
+   CDMA : len                  = 0x4c            76
+-----------------------WDMA-----------------------
+   WDMA : node_index           = 0x1             1
+   WDMA : node_type            = 0x0             0
+   WDMA : next_node_index      = 0x2             2
+   WDMA : opcode_id            = 0x1             1
+   WDMA : addr                 = 0x40200000      1075838976
+   WDMA : len                  = 0x410           1040
+-----------------------DIDMA-----------------------
+  DIDMA : node_index           = 0x2             2
+  DIDMA : node_type            = 0x0             0
+  DIDMA : next_node_index      = 0x3             3
+  DIDMA : opcode_id            = 0x2             2
+  DIDMA : input_Node_index     = 0x186a0         100000
+  DIDMA : dram_offset          = 0x0             0
+  DIDMA : rowPitchLen          = 0x220           544
+  DIDMA : rowPitchNum          = 0x11            17
+  DIDMA : rowLen               = 0x220           544
+  DIDMA : chPitchLen           = 0x2420          9248
+  DIDMA : chPitchNum           = 0x4             4
+  DIDMA : sram_offset          = 0x1c0           448
+  DIDMA : dmem                 = 0x0             0
+  DIDMA : preprocessType       = 0x0             0
+-----------------------NPU-----------------------
+    NPU : node_index           = 0x3             3
+    NPU : node_type            = 0x1             1
+    NPU : next_node_index      = 0x4             4
+-----------------------DODMA-----------------------
+  DODMA : node_index           = 0x4             4
+  DODMA : node_type            = 0x0             0
+  DODMA : next_node_index      = 0x0             0
+  DODMA : opcode_id            = 0x3             3
+  DODMA : output_Node_index    = 0x186a1         100001
+  DODMA : dram_offset          = 0x0             0
+  DODMA : rowPitchLen          = 0x220           544
+  DODMA : rowPitchNum          = 0x11            17
+  DODMA : rowLen               = 0x220           544
+  DODMA : chPitchLen           = 0x2420          9248
+  DODMA : chPitchNum           = 0x4             4
+  DODMA : sram_offset          = 0x98d           2445
+  DODMA : dmem                 = 0x1             1
+-----------------------datanode-----------------------
+datanode : node_index           = 0x186a0         100000
+datanode : node_type            = 0x2             2
+datanode : dram_addr            = 0x40a00000      1084227584
+datanode : format               = 0x0             0
+datanode : height               = 0x11            17
+datanode : width                = 0x11            17
+datanode : channel              = 0x80            128
+-----------------------datanode-----------------------
+datanode : node_index           = 0x186a1         100001
+datanode : node_type            = 0x2             2
+datanode : dram_addr            = 0x40c00000      1086324736
+datanode : format               = 0x0             0
+datanode : height               = 0x11            17
+datanode : width                = 0x11            17
+datanode : channel              = 0x80            128

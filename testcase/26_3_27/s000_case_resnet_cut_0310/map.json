@@ -1,0 +1,12 @@
+{
+    "100001": "_layer1_layer1.0_Add",
+    "100002": "_conv1_Conv",
+    "100003": "_relu_Relu",
+    "100004": "_maxpool_MaxPool",
+    "100005": "_layer1_layer1.0_conv1_Conv",
+    "100006": "_layer1_layer1.0_downsample_downsample.0_Conv",
+    "100007": "_layer1_layer1.0_relu_Relu",
+    "100008": "_layer1_layer1.0_conv2_Conv",
+    "100009": "_layer1_layer1.0_relu_1_Relu",
+    "100010": "_layer1_layer1.0_conv3_Conv"
+}

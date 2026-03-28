@@ -1,0 +1,122 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/s000_model",
+            // "args": [
+            //     "-c",
+            //     "./testcase/26_3_14/case_0314_1layer/config.bin",
+            //     "-i",
+            //     "./testcase/26_3_14/case_0314_1layer/cmd.bin",
+            //     "-d",
+            //     "./testcase/26_3_14/case_0314_1layer/golden/input.bin",
+            //     "-w",
+            //     "./testcase/26_3_14/case_0314_1layer/weight.bin",
+            //     "-f",
+            //     "./testcase/26_3_14/case_0314_1layer/opflow.bin",
+            //     "-j",
+            //     "./testcase/26_3_14/case_0314_1layer/map.json",
+            //     "-g",
+            //     "./testcase/26_3_14/case_0314_1layer/golden/",
+            //     "-l",
+            //     "./testcase/26_3_14/case_0314_1layer/lut.bin"
+            // ],
+            "args": [
+                "-c",
+                "./testcase/26_3_28/s000_case_mobilenet/config.bin",
+                "-i",
+                "./testcase/26_3_28/s000_case_mobilenet/cmd.bin",
+                "-d",
+                "./testcase/26_3_28/s000_case_mobilenet/golden/input.bin",
+                "-w",
+                "./testcase/26_3_28/s000_case_mobilenet/weight.bin",
+                "-f",
+                "./testcase/26_3_28/s000_case_mobilenet/opflow.bin",
+                "-j",
+                "./testcase/26_3_28/s000_case_mobilenet/map.json",
+                "-g",
+                "./testcase/26_3_28/s000_case_mobilenet/golden/",
+                "-l",
+                "./testcase/26_3_28/s000_case_mobilenet/lut.bin",
+                "-t",
+                "16",
+            ],
+            //     "args": [
+            //     "-c",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/config.bin",
+            //     "-i",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/cmd.bin",
+            //     "-d",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/golden/input.bin",
+            //     "-w",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/weight.bin",
+            //     "-f",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/opflow.bin",
+            //     "-j",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/map.json",
+            //     "-g",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/golden/",
+            //     "-l",
+            //     "./testcase/26_3_20/s000_case_mobilenet0_s100/lut.bin",
+            //     "-t",
+            //     "16",
+            // ],
+            "stopAtEntry": false,
+
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "C/C++: g++-9 构建和调试活动文件",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++-9 生成活动文件",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
+        {
+            "name": "循环运行 testcase/26_1_20/v002_CONV1X1 (276个case)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run_loop_testcase.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
