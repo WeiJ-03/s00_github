@@ -1,0 +1,20 @@
+# Build artifacts
+build/
+cmake-build-*/
+
+# Runtime outputs
+logs/
+dumpfile/
+debug/
+result*.txt
+*.log
+
+# Archives and large packaged outputs
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Debug/temp
+*.tmp
+*.swp

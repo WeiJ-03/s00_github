@@ -1,0 +1,114 @@
+// please refer to the tensorflow/lite/schema/schema.fbs for the full version
+// if we use the same type, we will try to maintain the same struct
+// this type is carried in the sf file
+
+namespace cpu;
+
+enum TensorType : byte {
+    FLOAT32 = 0,
+    INT8 = 9
+}
+
+table Tensor {
+    // shape in nhwc
+    shape:[int];
+    type:TensorType;
+
+    // putting an id here because we might need to map it
+    id:uint;
+}
+
+enum BuiltinOperator : uint {
+    AVERAGE_POOL_2D = 1,
+    MAX_POOL_2D = 17,
+    RESIZE_BILINEAR = 23,
+    SOFTMAX = 25,
+    RESIZE_NEAREST_NEIGHBOR = 97,
+    RESIZE_ZERO_FILL = 1000,
+}
+
+union BuiltinOptions {
+    NullOptions,
+    RDMAOptions,
+    WDMAOptions,
+    Pool2DOptions,
+    Resize2DOptions
+}
+
+table NullOptions {
+}
+
+table RDMAOptions {
+    // Source: DRAM
+    sa: uint,
+    base: uint,
+    pitch_l: uint,
+    pitch_c: uint,
+    len: uint,
+
+    // Destination: SRAM: In1, In2
+    dm: uint,
+    dl: uint,
+    ch: uint,
+    line_c: uint,
+    line: uint
+}
+
+table WDMAOptions {
+    // Source: SRAM: In1, In2
+    sm: uint,
+    sl: uint,
+    ch: uint,
+    line_c: uint,
+    line: uint,
+
+    // Desination: DRAM
+    da: uint,
+    base: uint,
+    pitch_l: uint
+    pitch_c: uint
+    len: uint
+}
+
+// provide padding value directly
+table PaddingOptions {
+    pad_t: int;
+    pad_b: int;
+    pad_l: int;
+    pad_r: int;
+}
+
+table Pool2DOptions {
+    stride_w: int;
+    stride_h: int;
+    filter_width: int;
+    filter_height: int;
+    // self define field
+    padding_value: PaddingOptions;
+}
+
+// resize scale
+table Resize2DOptions {
+    scale_w: int;
+    scale_h: int;
+}
+
+table Operator {
+    opcode_index:uint;
+    inputs:[int];
+    outputs:[int];
+    builtin_options:BuiltinOptions;
+}
+
+table SubGraph {
+    tensors:[Tensor];
+    inputs:[int];
+    outputs:[int];
+    operators:[Operator];
+}
+
+table Model {
+    subgraphs:[SubGraph];
+}
+
+root_type Model;

@@ -1,0 +1,57 @@
+include "cpu.fbs";
+
+namespace setup;
+
+table NpuOptions {
+    trigger:uint;
+}
+
+table IOOptions {
+    index:uint;
+    addr:uint;
+    format:uint;
+    height:uint;
+    width:uint;
+    channel:uint;
+    radix:uint;
+    scale:float;
+}
+
+table CpuOptions {
+    index:uint;
+    input:[IOOptions];
+    output:[IOOptions];
+}
+
+union NodeOptions {
+    Npu:NpuOptions,
+    Cpu:CpuOptions,
+    In:IOOptions,
+    Out:IOOptions
+}
+
+table Node {
+    opts:NodeOptions;
+}
+
+table Header {
+    dram_start:uint;
+    dram_len:uint;
+    cmd_start:uint;
+    cmd_len:uint;
+    weight_start:uint;
+    weight_len:uint;
+    input_start:uint;
+    input_len:uint;
+}
+
+table Content {
+    header:Header;
+    body:[Node];
+    model:cpu.Model;
+}
+
+root_type Content;
+
+file_extension "sf";
+file_identifier "KNSF";
