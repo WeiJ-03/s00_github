@@ -41,6 +41,10 @@ extern int WT_FIFO_CLK;
 extern int MAIN_FREQ;
 extern int DMA_FREQ;
 extern std::string DUMPFILE_DIR;
+extern int CURRENT_NPU_NODE_INDEX;
+extern std::string DUMP_NODE_FILTER;
+
+bool ShouldDumpCurrentNode();
 
  
 #endif //N900_MODEL_DEFINE_H

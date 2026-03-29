@@ -28,6 +28,7 @@ cxxopts::ParseResult Parse(int argc, char *argv[]) {
                         ("l, lut", "LUT lut.bin file", cxxopts::value<std::string>())
                         ("j, json", "Map data node and bin file", cxxopts::value<std::string>())
                         ("g, golden", "golden address", cxxopts::value<std::string>())
+                        ("n, dump-nodes", "optional, comma-separated NPU node ids to dump, e.g. 83,87,91", cxxopts::value<std::string>())
                         ("h, help", "optional, print help")
                         ("o, output",
                          "optional, path_to_folder to save the outputs; CREATE THE FOLDER BEFORE CALLING THE BINARY",

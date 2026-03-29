@@ -9,6 +9,10 @@ dumpfile/
 *.log
 result*.txt
 
+# Local-only test/debug artifacts
+debug/
+testcase/
+
 # Archives and packages
 *.zip
 *.tar
